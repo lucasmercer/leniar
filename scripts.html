@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Primário -->
+    <title>Lucas Leniar | Professor de Computação e Tecnologia Educacional</title>
+    <meta name="title" content="Lucas Leniar | Professor de Computação e Tecnologia Educacional" />
+    <meta name="description" content="Lucas Leniar é Professor de Computação e Tecnologia Educacional em Ponta Grossa, Paraná. Especialista em pensamento computacional, robótica educacional e IoT na educação." />
+    <meta name="keywords" content="professor de computação, tecnologia educacional, pensamento computacional, robótica educacional, IoT na educação, programação para alunos, Professor de Computação em Ponta Grossa, Tecnologia Educacional no Paraná" />
+    <meta name="author" content="Lucas Leniar" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="language" content="Portuguese" />
+    <link rel="canonical" href="https://lucasleniar.com.br/scripts.html" />
+    <link rel="icon" type="image/png" href="https://lucasleniar.com.br/favicon.png">
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lucasleniar.com.br/scripts.html" />
+    <meta property="og:title" content="Lucas Leniar | Professor de Computação e Tecnologia Educacional" />
+    <meta property="og:description" content="Professor de Computação em Ponta Grossa, focando no desenvolvimento do pensamento computacional e robótica educacional no Paraná." />
+    <!-- IMPORTANTE: A imagem Open Graph deve ter caminho absoluto. Sugere-se uma imagem 1200x630. -->
+    <meta property="og:image" content="https://lucasleniar.com.br/lucas.png" />
+    <meta property="og:image:width" content="709" />
+    <meta property="og:image:height" content="945" />
+    <meta property="og:image:alt" content="Foto de Lucas Leniar, Professor de Computação" />
+    <meta property="og:site_name" content="Lucas Leniar" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://lucasleniar.com.br/scripts.html" />
+    <meta name="twitter:title" content="Lucas Leniar | Professor de Computação e Tecnologia Educacional" />
+    <meta name="twitter:description" content="Especialista em tecnologia educacional, pensamento computacional e robótica educacional para alunos." />
+    <meta name="twitter:image" content="https://lucasleniar.com.br/lucas.png" />
+    <!-- Favicon & PWA -->
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/favicon.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#00d2ff" />
+
+    <!-- Google Fonts Otimizado (Preconnect & Preload para alta performance) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" />
+
+    <!-- CSS Puro -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+
+    <!-- Estilos específicos da página de Scripts -->
+    <style>
+      .auth-gate-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-xl);
+        padding: 2rem;
+        max-width: 680px;
+        margin: 0 auto 2.5rem auto;
+        box-shadow: var(--shadow-lg);
+        position: relative;
+        overflow: hidden;
+      }
+      .auth-gate-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+      }
+      .terminal-header-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 1rem;
+        margin-bottom: 1.25rem;
+        border-bottom: 1px solid var(--border-color);
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+      }
+      .terminal-dots {
+        display: flex;
+        gap: 6px;
+      }
+      .terminal-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .terminal-dot.red { background: #ef4444; }
+      .terminal-dot.yellow { background: #f59e0b; }
+      .terminal-dot.green { background: #10b981; }
+
+      .scripts-locked-container {
+        display: none !important;
+      }
+      .scripts-locked-container.unlocked {
+        display: flex !important;
+      }
+      .script-filter-nav.locked {
+        display: none !important;
+      }
+
+      .lock-placeholder-card {
+        background: var(--bg-card);
+        border: 1px dashed var(--border-color);
+        border-radius: var(--radius-xl);
+        padding: 3.5rem 1.5rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .lock-placeholder-icon {
+        width: 54px;
+        height: 54px;
+        margin: 0 auto 1.25rem auto;
+        border-radius: 50%;
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .auth-input-group {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+        flex-wrap: wrap;
+      }
+      .auth-input-field {
+        flex: 1;
+        min-width: 240px;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        color: var(--text-primary);
+        padding: 0.75rem 1rem;
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.95rem;
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      .auth-input-field:focus {
+        border-color: var(--accent-cyan);
+        box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.15);
+      }
+      .auth-status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.85rem;
+        border-radius: 9999px;
+        font-size: 0.8rem;
+        font-family: var(--font-mono);
+      }
+      .auth-status-badge.locked {
+        background: rgba(239, 68, 68, 0.12);
+        color: #ef4444;
+        border: 1px solid rgba(239, 68, 68, 0.25);
+      }
+      .auth-status-badge.unlocked {
+        background: rgba(16, 185, 129, 0.12);
+        color: #10b981;
+        border: 1px solid rgba(16, 185, 129, 0.25);
+      }
+      .script-filter-nav {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+        justify-content: center;
+      }
+      .script-filter-btn {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        padding: 0.6rem 1.25rem;
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .script-filter-btn:hover,
+      .script-filter-btn.active {
+        background: var(--accent-cyan);
+        color: #050b14;
+        border-color: var(--accent-cyan);
+        font-weight: 600;
+      }
+      .command-runner-card {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        padding: 1rem 1.25rem;
+        margin: 1rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .command-runner-text {
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        color: var(--accent-cyan);
+        word-break: break-all;
+      }
+      .action-btns-row {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .script-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+      .shake {
+        animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+      }
+      @keyframes shake {
+        10%, 90% { transform: translate3d(-1px, 0, 0); }
+        20%, 80% { transform: translate3d(2px, 0, 0); }
+        30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+        40%, 60% { transform: translate3d(4px, 0, 0); }
+      }
+    </style>
+
+    <!-- Scripts Core -->
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/navigation.js"></script>
+    <script type="module" src="/js/animations.js"></script>
+    <script type="module" src="/js/interactions.js"></script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Repositório de Scripts Shell de Lucas Leniar",
+      "description": "Scripts oficiais civico.sh, wallpaper.sh e ponto.sh desenvolvidos para automação e administração de sistemas Linux educacionais.",
+      "author": {
+        "@type": "Person",
+        "name": "Lucas Mercer Leniar",
+        "alternateName": [
+          "Lucas Leniar",
+          "Lucas Mercer",
+          "Professor Lucas Leniar"
+        ],
+        "jobTitle": "Professor de Computação",
+        "url": "https://www.lucasleniar.com.br/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Lucas Leniar",
+        "url": "https://www.lucasleniar.com.br/"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://www.lucasleniar.com.br/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Scripts",
+            "item": "https://www.lucasleniar.com.br/scripts.html"
+          }
+        ]
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="/" class="brand-link" aria-label="Lucas Leniar - Página Inicial">
+          <div class="brand-icon">L</div>
+          <div class="brand-text">
+            <span class="brand-name">Lucas Leniar</span>
+            <span class="brand-role">Educação Digital &amp; Programação</span>
+          </div>
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Navegação Principal">
+          <ul class="nav-list">
+            <li><a href="/" class="nav-link">Início</a></li>
+            <li><a href="/sobre.html" class="nav-link">Sobre</a></li>
+            <li><a href="/pensamento-computacional.html" class="nav-link">Pensamento Computacional</a></li>
+            <li><a href="/utfpr.html" class="nav-link">UTFPR</a></li>
+            <li><a href="/scripts.html" class="nav-link active">Scripts</a></li>
+            <li><a href="/contato.html" class="nav-link">Contato</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Alternar tema claro/escuro">
+            <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </button>
+
+          <button type="button" class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="site-nav">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="conteudo-principal" class="site-main">
+      <div class="container">
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Trilha de Navegação (Breadcrumb)">
+          <ol class="breadcrumb-list">
+            <li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Início</a></li>
+            <li class="breadcrumb-item"><span class="breadcrumb-separator">/</span></li>
+            <li class="breadcrumb-item"><span class="breadcrumb-current" aria-current="page">Scripts</span></li>
+          </ol>
+        </nav>
+
+        <section class="section" style="padding-top: 1rem;">
+          <header class="section-header reveal-on-scroll">
+            <span class="section-eyebrow">Repositório de Automações &amp; Shell Script</span>
+            <h1 class="section-title">Scripts Shell (.sh) — Lucas Leniar</h1>
+            <p class="section-subtitle">
+              Rotinas automatizadas para padronização de estações GNU/Linux, configuração institucional e utilitários com suporte a cópia rápida para o terminal.
+            </p>
+          </header>
+
+          <!-- Painel de Autenticação / Controle de Acesso -->
+          <div class="auth-gate-box reveal-on-scroll" id="auth-gate-container" style="margin-bottom: 2rem;">
+            <div class="terminal-header-bar">
+              <div class="terminal-dots">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+              </div>
+              <span style="color: var(--text-muted); font-family: var(--font-mono);">lucasleniar@server:~/scripts</span>
+              <div id="auth-status-indicator" class="auth-status-badge locked">
+                <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:currentColor;"></span>
+                <span id="auth-status-label">Acesso Restrito</span>
+              </div>
+            </div>
+
+            <!-- Formulário de Login Simples -->
+            <div id="auth-gate-form-wrapper">
+              <h2 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="var(--accent-cyan)">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <span>Autenticação do Repositório</span>
+              </h2>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                Digite a senha de acesso para desbloquear a visualização e cópia dos scripts utilitários.
+              </p>
+
+              <form id="auth-form" onsubmit="event.preventDefault(); window.handleAuthSubmit();">
+                <div class="auth-input-group">
+                  <input 
+                    type="password" 
+                    id="auth-password-input" 
+                    class="auth-input-field" 
+                    placeholder="Digite a senha de acesso..." 
+                    autocomplete="current-password"
+                    aria-label="Senha de acesso ao repositório de scripts"
+                    required
+                  />
+                  <button type="submit" class="btn btn-primary" id="auth-submit-btn">
+                    Desbloquear Scripts
+                  </button>
+                </div>
+                <p id="auth-feedback-msg" style="font-size: 0.84rem; margin-top: 0.75rem; font-family: var(--font-mono); display: none;"></p>
+              </form>
+            </div>
+
+            <!-- Banner exibido quando AUTENTICADO -->
+            <div id="auth-success-banner" style="display: none; margin-top: 0.5rem;">
+              <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-md); padding: 1rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+                <div>
+                  <strong style="color: #10b981; font-family: var(--font-mono); font-size: 0.9rem; display: block;">[AUTH OK] Repositório Desbloqueado</strong>
+                  <span style="font-size: 0.82rem; color: var(--text-secondary);">Sessão autorizada. Todos os 3 scripts estão disponíveis para execução.</span>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="window.lockRepository();" style="border-color: rgba(239, 68, 68, 0.4); color: #ef4444;">
+                  Bloquear / Sair
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Placeholder exibido enquanto BLOQUEADO -->
+          <div id="scripts-locked-placeholder" class="lock-placeholder-card reveal-on-scroll">
+            <div class="lock-placeholder-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <h3 style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 0.5rem;">Repositório Protegido por Senha</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); max-width: 480px; margin: 0 auto;">
+              Os scripts e comandos de terminal estão temporariamente ocultos. Insira a senha no campo acima para liberar o acesso aos scripts de automação.
+            </p>
+          </div>
+
+          <!-- Filtros de Scripts (ocultos enquanto bloqueado) -->
+          <div class="script-filter-nav locked" id="script-tabs-bar">
+            <button type="button" class="script-filter-btn active" data-filter="all" onclick="window.filterScripts('all', this);">Todos os Scripts (3)</button>
+            <button type="button" class="script-filter-btn" data-filter="civico" onclick="window.filterScripts('civico', this);">civico.sh</button>
+            <button type="button" class="script-filter-btn" data-filter="wallpaper" onclick="window.filterScripts('wallpaper', this);">wallpaper.sh</button>
+            <button type="button" class="script-filter-btn" data-filter="ponto" onclick="window.filterScripts('ponto', this);">ponto.sh</button>
+          </div>
+
+          <!-- LISTA DE SCRIPTS (oculta enquanto bloqueado) -->
+          <div id="scripts-container" class="scripts-locked-container" style="flex-direction: column; gap: 2.5rem;">
+            
+            <!-- SCRIPT 1: civico.sh -->
+            <article class="card reveal-on-scroll script-item" id="script-civico" data-script="civico">
+              <div class="script-card-header">
+                <div>
+                  <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.4rem;">
+                    <span class="project-tag" style="background: rgba(0, 210, 255, 0.15); color: var(--accent-cyan);">Bash / Shell Script</span>
+                    <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">v2.4 • Debian/Ubuntu</span>
+                  </div>
+                  <h2 style="font-size: 1.35rem; color: var(--text-primary); margin-bottom: 0.25rem;">civico.sh</h2>
+                  <p style="font-size: 0.88rem; color: var(--accent-cyan); font-family: var(--font-mono);">
+                    Configuração e Otimização para Estações do Colégio Cívico Militar
+                  </p>
+                </div>
+                <div class="action-btns-row">
+                  <button type="button" class="btn btn-primary btn-sm copy-text-btn" data-copy-text="curl -sSL https://www.lucasleniar.com.br/scripts/civico.sh | bash">
+                    Copiar cURL
+                  </button>
+                </div>
+              </div>
+
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+                Script automatizado para instalação de pacotes essenciais de ensino, ajuste de repositórios, sincronização de relógio NTP (América/São Paulo) e configuração de diretórios de aula para estudantes.
+              </p>
+
+              <!-- Comando Rápido de Execução no Terminal -->
+              <div class="command-runner-card">
+                <div>
+                  <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.2rem; font-family: var(--font-mono);">EXECUÇÃO DIRETA NO TERMINAL (BASH):</span>
+                  <div class="command-runner-text" id="cmd-text-civico">curl -sSL https://www.lucasleniar.com.br/scripts/civico.sh | bash</div>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm copy-text-btn" data-copy-text="curl -sSL https://www.lucasleniar.com.br/scripts/civico.sh | bash">
+                  Copiar Comando
+                </button>
+              </div>
+            </article>
+
+            <!-- SCRIPT 2: wallpaper.sh -->
+            <article class="card reveal-on-scroll script-item" id="script-wallpaper" data-script="wallpaper">
+              <div class="script-card-header">
+                <div>
+                  <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.4rem;">
+                    <span class="project-tag" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Bash / Customização</span>
+                    <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">GNOME • XFCE • Cinnamon</span>
+                  </div>
+                  <h2 style="font-size: 1.35rem; color: var(--text-primary); margin-bottom: 0.25rem;">wallpaper.sh</h2>
+                  <p style="font-size: 0.88rem; color: #10b981; font-family: var(--font-mono);">
+                    Padronização Automática de Papel de Parede Institucional
+                  </p>
+                </div>
+                <div class="action-btns-row">
+                  <button type="button" class="btn btn-primary btn-sm copy-text-btn" data-copy-text="curl -sSL https://www.lucasleniar.com.br/scripts/wallpaper.sh | bash">
+                    Copiar cURL
+                  </button>
+                </div>
+              </div>
+
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+                Faz o download do papel de parede oficial e detecta automaticamente a interface gráfica em execução (GNOME, XFCE4 ou Cinnamon) para aplicar o plano de fundo do sistema imediatamente.
+              </p>
+
+              <!-- Comando Rápido de Execução no Terminal -->
+              <div class="command-runner-card">
+                <div>
+                  <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.2rem; font-family: var(--font-mono);">EXECUÇÃO DIRETA NO TERMINAL (BASH):</span>
+                  <div class="command-runner-text" id="cmd-text-wallpaper">curl -sSL https://www.lucasleniar.com.br/scripts/wallpaper.sh | bash</div>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm copy-text-btn" data-copy-text="curl -sSL https://www.lucasleniar.com.br/scripts/wallpaper.sh | bash">
+                  Copiar Comando
+                </button>
+              </div>
+            </article>
+
+            <!-- SCRIPT 3: ponto.sh -->
+            <article class="card reveal-on-scroll script-item" id="script-ponto" data-script="ponto">
+              <div class="script-card-header">
+                <div>
+                  <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.4rem;">
+                    <span class="project-tag" style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple);">Bash / Utilitário</span>
+                    <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">Registro &amp; Presença</span>
+                  </div>
+                  <h2 style="font-size: 1.35rem; color: var(--text-primary); margin-bottom: 0.25rem;">ponto.sh</h2>
+                  <p style="font-size: 0.88rem; color: var(--accent-purple); font-family: var(--font-mono);">
+                    Registro e Auditoria de Presença em Laboratório
+                  </p>
+                </div>
+                <div class="action-btns-row">
+                  <button type="button" class="btn btn-primary btn-sm copy-text-btn" data-copy-text="curl -sSL https://www.lucasleniar.com.br/scripts/ponto.sh | bash">
+                    Copiar cURL
+                  </button>
+                </div>
+              </div>
+
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+                Utilitário de registro rápido de ponto e auditoria com coleta de timestamp ISO, nome do usuário ativo, hostname da estação de trabalho e endereço IP local.
+              </p>
+
+              <!-- Comando Rápido de Execução no Terminal -->
+              <div class="command-runner-card">
+                <div>
+                  <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.2rem; font-family: var(--font-mono);">EXECUÇÃO DIRETA NO TERMINAL (BASH):</span>
+                  <div class="command-runner-text" id="cmd-text-ponto">curl -sSL https://www.lucasleniar.com.br/scripts/ponto.sh | bash</div>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm copy-text-btn" data-copy-text="curl -sSL https://www.lucasleniar.com.br/scripts/ponto.sh | bash">
+                  Copiar Comando
+                </button>
+              </div>
+            </article>
+
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Rodapé -->
+        <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid-improved" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 3rem; margin-bottom: 3rem;">
+          <div class="footer-brand" style="flex: 1; min-width: 280px; max-width: 500px;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <div class="brand-icon" style="width: 32px; height: 32px; font-size: 1rem;">L</div>
+              <span class="footer-brand-title" style="margin: 0; font-size: 1.25rem;">Lucas Leniar</span>
+            </div>
+            <p class="footer-brand-desc" style="line-height: 1.6; font-size: 0.95rem;">
+              Professor de Computação — Especialista em Educação Digital &amp; Programação.<br>
+              <span style="color: var(--text-secondary);">Transformando a lógica e a tecnologia em aprendizagem duradoura.</span>
+            </p>
+          </div>
+          <div class="footer-social" style="display: flex; flex-direction: column; align-items: flex-start; min-width: 280px;">
+            <h3 class="footer-col-title" style="margin-bottom: 1rem; font-size: 1rem; color: var(--text-primary);">Redes &amp; Conexões</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+              <a href="https://github.com/lucasmercer" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/lucasleniar/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+              </a>
+              <a href="https://www.instagram.com/lucasmercerl/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                Instagram
+              </a>
+              <a href="mailto:lucasleniar@gmail.com" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                E-mail
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 2rem; gap: 1rem; color: var(--text-muted); font-size: 0.85rem;">
+          <div>&copy; 2026 Lucas Mercer Leniar. Todos os direitos reservados.</div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.5px; text-transform: uppercase;">Reserva, Paraná</div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Script de Autenticação e Filtro Interativo dos Scripts -->
+    <script>
+      const AUTH_STORAGE_KEY = 'lucasleniar_scripts_auth';
+      const VALID_PASSWORD = 'lucas123';
+
+      function checkStoredAuth() {
+        const isAuth = sessionStorage.getItem(AUTH_STORAGE_KEY) === 'true';
+        updateAuthUI(isAuth);
+      }
+
+      function handleAuthSubmit() {
+        const input = document.getElementById('auth-password-input');
+        const feedback = document.getElementById('auth-feedback-msg');
+        const container = document.getElementById('auth-gate-container');
+
+        if (!input) return;
+
+        const val = input.value.trim().toLowerCase();
+        if (val === VALID_PASSWORD) {
+          sessionStorage.setItem(AUTH_STORAGE_KEY, 'true');
+          input.value = '';
+          if (feedback) feedback.style.display = 'none';
+          updateAuthUI(true);
+          if (window.showToast) {
+            window.showToast('Repositório desbloqueado com sucesso!');
+          }
+        } else {
+          if (container) {
+            container.classList.remove('shake');
+            void container.offsetWidth; // trigger reflow
+            container.classList.add('shake');
+          }
+          if (feedback) {
+            feedback.style.display = 'block';
+            feedback.style.color = '#ef4444';
+            feedback.textContent = '❌ Senha incorreta. Acesso negado. Tente novamente.';
+          }
+          input.focus();
+        }
+      }
+
+      function lockRepository() {
+        sessionStorage.removeItem(AUTH_STORAGE_KEY);
+        updateAuthUI(false);
+        const input = document.getElementById('auth-password-input');
+        if (input) input.value = '';
+        if (window.showToast) {
+          window.showToast('Sessão encerrada e repositório bloqueado.');
+        }
+      }
+
+      function updateAuthUI(isAuth) {
+        const formWrapper = document.getElementById('auth-gate-form-wrapper');
+        const successBanner = document.getElementById('auth-success-banner');
+        const indicator = document.getElementById('auth-status-indicator');
+        const label = document.getElementById('auth-status-label');
+        const scriptsContainer = document.getElementById('scripts-container');
+        const placeholder = document.getElementById('scripts-locked-placeholder');
+        const filterNav = document.getElementById('script-tabs-bar');
+
+        if (isAuth) {
+          if (formWrapper) formWrapper.style.display = 'none';
+          if (successBanner) successBanner.style.display = 'block';
+          if (indicator) {
+            indicator.className = 'auth-status-badge unlocked';
+            if (label) label.textContent = 'Autenticado';
+          }
+          if (scriptsContainer) {
+            scriptsContainer.classList.add('unlocked');
+          }
+          if (placeholder) {
+            placeholder.style.display = 'none';
+          }
+          if (filterNav) {
+            filterNav.classList.remove('locked');
+          }
+        } else {
+          if (formWrapper) formWrapper.style.display = 'block';
+          if (successBanner) successBanner.style.display = 'none';
+          if (indicator) {
+            indicator.className = 'auth-status-badge locked';
+            if (label) label.textContent = 'Acesso Restrito';
+          }
+          if (scriptsContainer) {
+            scriptsContainer.classList.remove('unlocked');
+          }
+          if (placeholder) {
+            placeholder.style.display = 'block';
+          }
+          if (filterNav) {
+            filterNav.classList.add('locked');
+          }
+        }
+      }
+
+      function filterScripts(category, btnElement) {
+        const items = document.querySelectorAll(".script-item");
+        const buttons = document.querySelectorAll(".script-filter-btn");
+        buttons.forEach(btn => btn.classList.remove("active"));
+        if (btnElement) {
+          btnElement.classList.add("active");
+        }
+        items.forEach(item => {
+          if (category === "all" || item.getAttribute("data-script") === category) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+
+      // Exposição global das funções
+      window.handleAuthSubmit = handleAuthSubmit;
+      window.lockRepository = lockRepository;
+      window.filterScripts = filterScripts;
+
+      document.addEventListener('DOMContentLoaded', () => {
+        checkStoredAuth();
+      });
+      if (document.readyState !== 'loading') {
+        checkStoredAuth();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070a10"/>
+      <stop offset="60%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#172554"/>
+    </linearGradient>
+    <linearGradient id="cyanBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Grid Lines -->
+  <g stroke="rgba(56, 189, 248, 0.12)" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100" />
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="0" y1="400" x2="1200" y2="400" />
+    <line x1="0" y1="500" x2="1200" y2="500" />
+    <line x1="200" y1="0" x2="200" y2="630" />
+    <line x1="400" y1="0" x2="400" y2="630" />
+    <line x1="600" y1="0" x2="600" y2="630" />
+    <line x1="800" y1="0" x2="800" y2="630" />
+    <line x1="1000" y1="0" x2="1000" y2="630" />
+  </g>
+
+  <!-- Top Badge -->
+  <rect x="80" y="70" width="340" height="38" rx="19" fill="rgba(0, 210, 255, 0.12)" stroke="#00d2ff" stroke-width="1.5"/>
+  <circle cx="102" cy="89" r="6" fill="#10b981"/>
+  <text x="120" y="94" fill="#00d2ff" font-family="'Fira Code', monospace" font-size="15" font-weight="bold">UTFPR // TECNOLOGIA EDUCACIONAL</text>
+
+  <!-- Main Name Title -->
+  <text x="80" y="210" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="68" font-weight="800" letter-spacing="-1">Lucas Leniar</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="275" fill="url(#cyanBlue)" font-family="'Space Grotesk', sans-serif" font-size="34" font-weight="700">Professor de Computação &amp; Tecnologia Educacional</text>
+
+  <!-- Description -->
+  <text x="80" y="345" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="400">Transformando lógica, algoritmos, robótica e desenvolvimento em</text>
+  <text x="80" y="380" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="400">experiências práticas e transformadoras de aprendizagem.</text>
+
+  <!-- 4 Pillars Badge Box -->
+  <g transform="translate(80, 440)">
+    <rect x="0" y="0" width="240" height="60" rx="10" fill="#10172a" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1"/>
+    <text x="20" y="37" fill="#00d2ff" font-family="'Fira Code', monospace" font-size="16" font-weight="bold">[1] Decomposição</text>
+
+    <rect x="260" y="0" width="240" height="60" rx="10" fill="#10172a" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1"/>
+    <text x="280" y="37" fill="#00d2ff" font-family="'Fira Code', monospace" font-size="16" font-weight="bold">[2] Padrões</text>
+
+    <rect x="520" y="0" width="240" height="60" rx="10" fill="#10172a" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1"/>
+    <text x="540" y="37" fill="#00d2ff" font-family="'Fira Code', monospace" font-size="16" font-weight="bold">[3] Abstração</text>
+
+    <rect x="780" y="0" width="240" height="60" rx="10" fill="#10172a" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1"/>
+    <text x="800" y="37" fill="#00d2ff" font-family="'Fira Code', monospace" font-size="16" font-weight="bold">[4] Algoritmos</text>
+  </g>
+
+  <!-- Footer Link -->
+  <text x="80" y="575" fill="#64748b" font-family="'Fira Code', monospace" font-size="18">https://www.lucasleniar.com.br</text>
+  <text x="1120" y="575" fill="#64748b" font-family="'Space Grotesk', sans-serif" font-size="18" text-anchor="end">Ponta Grossa, PR • Brasil</text>
+</svg>

@@ -1,0 +1,6 @@
+{
+  "name": "Lucas Leniar | Professor de Computação & Tecnologia Educacional",
+  "description": "Site profissional de Lucas Leniar — Professor de Computação, especialista em Educação Digital, Programação, Pensamento Computacional, Robótica e Licenciatura em Computação UTFPR.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,219 @@
+/* ==========================================================================
+   LUCAS LENIAR — FOLHA DE RESPONSIVIDADE E DISPOSITIVOS MÓVEIS (CSS3)
+   ========================================================================== */
+
+/* Trava de rolagem quando o menu mobile está aberto */
+body.nav-locked {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
+/* Tipografia Fluida para o Subtítulo da Hero */
+.hero-subtitle.typewriter {
+  font-size: clamp(0.92rem, 3.8vw, 1.25rem);
+}
+
+/* Breakpoint: Tablets e Dispositivos Médios (max-width: 992px) */
+@media (max-width: 992px) {
+  :root {
+    --header-height: 68px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero-tech-card {
+    max-width: 540px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .nav-toggle-btn {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .theme-toggle-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: calc(100vh - var(--header-height));
+    background: var(--bg-primary);
+    padding: 2rem 1.5rem;
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all var(--transition-normal);
+    flex-direction: column;
+    align-items: stretch;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--glow-card);
+  }
+
+  .site-nav.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .nav-link {
+    padding: 0.85rem 1rem;
+    font-size: 1.05rem;
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    width: 100%;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .flow-step-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Breakpoint: Smartphones e Telas Pequenas (max-width: 640px) */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-section {
+    padding: 1.75rem 0 3rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .sim-tabs-nav {
+    flex-direction: column;
+  }
+
+  .sim-tab-btn {
+    width: 100%;
+    text-align: center;
+    min-height: 44px;
+  }
+
+  .contact-form-card {
+    padding: 1.5rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  /* Evita que blocos de código ou terminais estourem no mobile */
+  .command-runner,
+  .code-block,
+  pre,
+  .terminal-box {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .command-runner-text {
+    word-break: break-all;
+  }
+}
+
+/* Telas Ultra-Pequenas (< 480px, ex: celulares compactos) */
+@media (max-width: 480px) {
+  .hero-subtitle.typewriter {
+    white-space: normal !important;
+    animation: none !important;
+    border-right: none !important;
+    text-align: center;
+    line-height: 1.45;
+    padding-right: 0 !important;
+  }
+
+  .hero-title {
+    font-size: 2.25rem !important;
+  }
+}
+
+/* Telas Ultra-Wide (min-width: 1440px) */
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1280px;
+  }
+}
+
+/* Acessibilidade: Respeito a preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

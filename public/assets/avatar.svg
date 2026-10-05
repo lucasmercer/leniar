@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="50%" stop-color="#101522"/>
+      <stop offset="100%" stop-color="#161d2f"/>
+    </linearGradient>
+    <linearGradient id="cyanBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="accentGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#00d2ff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas with Blueprint Grid -->
+  <rect width="400" height="400" rx="30" fill="url(#bgGrad)"/>
+  <rect x="5" y="5" width="390" height="390" rx="25" fill="none" stroke="url(#cyanBlue)" stroke-width="2" stroke-opacity="0.3"/>
+
+  <!-- Circuit lines & tech nodes in background -->
+  <g stroke="#00d2ff" stroke-width="1.5" opacity="0.25">
+    <path d="M40 80 H 120 L 150 110 H 360" fill="none"/>
+    <path d="M40 320 H 160 L 190 290 H 360" fill="none"/>
+    <path d="M80 40 V 140 L 110 170 V 360" fill="none"/>
+    <path d="M320 40 V 200 L 290 230 V 360" fill="none"/>
+  </g>
+  <circle cx="150" cy="110" r="4" fill="#00d2ff" opacity="0.6"/>
+  <circle cx="190" cy="290" r="4" fill="#2563eb" opacity="0.6"/>
+  <circle cx="110" cy="170" r="4" fill="#00d2ff" opacity="0.6"/>
+
+  <!-- Center Professor / Computing Specialist Vector Emblem -->
+  <g filter="url(#shadow)" transform="translate(40, 30)">
+    <!-- Tech Frame & Monitor / Core Halo -->
+    <circle cx="160" cy="150" r="110" fill="url(#accentGlow)" />
+    <circle cx="160" cy="150" r="95" fill="#0d121d" stroke="url(#cyanBlue)" stroke-width="3"/>
+    
+    <!-- Code / Circuit Iconography within center -->
+    <path d="M120 130 L100 150 L120 170" fill="none" stroke="#00d2ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M200 130 L220 150 L200 170" fill="none" stroke="#00d2ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="170" y1="125" x2="150" y2="175" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Microchip Core Base -->
+    <rect x="135" y="195" width="50" height="24" rx="4" fill="#161d2f" stroke="#00d2ff" stroke-width="2"/>
+    <text x="160" y="212" fill="#00d2ff" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">LCOMP</text>
+  </g>
+
+  <!-- Title Badge on Avatar Bottom -->
+  <rect x="60" y="320" width="280" height="42" rx="10" fill="#0d121d" stroke="url(#cyanBlue)" stroke-width="1.5"/>
+  <text x="200" y="346" fill="#f1f5f9" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="bold" text-anchor="middle" letter-spacing="1">LUCAS LENIAR // UTFPR</text>
+</svg>

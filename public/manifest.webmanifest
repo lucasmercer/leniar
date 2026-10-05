@@ -1,0 +1,17 @@
+{
+  "name": "Lucas Leniar — Educação Digital & Programação",
+  "short_name": "Lucas Leniar",
+  "description": "Site profissional de Lucas Leniar, Professor de Computação especialista em Educação Digital, Programação, Robótica e Pensamento Computacional.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0d14",
+  "theme_color": "#00d2ff",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
